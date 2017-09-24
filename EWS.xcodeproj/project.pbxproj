@@ -1,0 +1,559 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 48;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		6769AA751F7772D400468A90 /* EWS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6769AA6B1F7772D400468A90 /* EWS.framework */; };
+		6769AA7A1F7772D400468A90 /* EWSTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 6769AA791F7772D400468A90 /* EWSTests.m */; };
+		6769AA7C1F7772D400468A90 /* EWS.h in Headers */ = {isa = PBXBuildFile; fileRef = 6769AA6E1F7772D400468A90 /* EWS.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		6769AAA31F77762E00468A90 /* EWSEmailBoxModel.h in Headers */ = {isa = PBXBuildFile; fileRef = 6769AA881F77762E00468A90 /* EWSEmailBoxModel.h */; };
+		6769AAA41F77762E00468A90 /* EWSEmailBoxModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 6769AA891F77762E00468A90 /* EWSEmailBoxModel.m */; };
+		6769AAA51F77762E00468A90 /* EWSInboxListModel.h in Headers */ = {isa = PBXBuildFile; fileRef = 6769AA8A1F77762E00468A90 /* EWSInboxListModel.h */; };
+		6769AAA61F77762E00468A90 /* EWSInboxListModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 6769AA8B1F77762E00468A90 /* EWSInboxListModel.m */; };
+		6769AAA71F77762E00468A90 /* EWSItemContentModel.h in Headers */ = {isa = PBXBuildFile; fileRef = 6769AA8C1F77762E00468A90 /* EWSItemContentModel.h */; };
+		6769AAA81F77762E00468A90 /* EWSItemContentModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 6769AA8D1F77762E00468A90 /* EWSItemContentModel.m */; };
+		6769AAA91F77762E00468A90 /* EWSMailAccountModel.h in Headers */ = {isa = PBXBuildFile; fileRef = 6769AA8E1F77762E00468A90 /* EWSMailAccountModel.h */; };
+		6769AAAA1F77762E00468A90 /* EWSMailAccountModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 6769AA8F1F77762E00468A90 /* EWSMailAccountModel.m */; };
+		6769AAAB1F77762E00468A90 /* EWSMailAttachmentModel.h in Headers */ = {isa = PBXBuildFile; fileRef = 6769AA901F77762E00468A90 /* EWSMailAttachmentModel.h */; };
+		6769AAAC1F77762E00468A90 /* EWSMailAttachmentModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 6769AA911F77762E00468A90 /* EWSMailAttachmentModel.m */; };
+		6769AAAD1F77762E00468A90 /* EWSXmlParser.h in Headers */ = {isa = PBXBuildFile; fileRef = 6769AA931F77762E00468A90 /* EWSXmlParser.h */; };
+		6769AAAE1F77762E00468A90 /* EWSXmlParser.m in Sources */ = {isa = PBXBuildFile; fileRef = 6769AA941F77762E00468A90 /* EWSXmlParser.m */; };
+		6769AAAF1F77762E00468A90 /* EWSAutodiscover.h in Headers */ = {isa = PBXBuildFile; fileRef = 6769AA961F77762E00468A90 /* EWSAutodiscover.h */; };
+		6769AAB01F77762E00468A90 /* EWSAutodiscover.m in Sources */ = {isa = PBXBuildFile; fileRef = 6769AA971F77762E00468A90 /* EWSAutodiscover.m */; };
+		6769AAB11F77762E00468A90 /* EWSInboxList.h in Headers */ = {isa = PBXBuildFile; fileRef = 6769AA981F77762E00468A90 /* EWSInboxList.h */; };
+		6769AAB21F77762E00468A90 /* EWSInboxList.m in Sources */ = {isa = PBXBuildFile; fileRef = 6769AA991F77762E00468A90 /* EWSInboxList.m */; };
+		6769AAB31F77762E00468A90 /* EWSItemContent.h in Headers */ = {isa = PBXBuildFile; fileRef = 6769AA9A1F77762E00468A90 /* EWSItemContent.h */; };
+		6769AAB41F77762E00468A90 /* EWSItemContent.m in Sources */ = {isa = PBXBuildFile; fileRef = 6769AA9B1F77762E00468A90 /* EWSItemContent.m */; };
+		6769AAB51F77762E00468A90 /* EWSMailAttachment.h in Headers */ = {isa = PBXBuildFile; fileRef = 6769AA9C1F77762E00468A90 /* EWSMailAttachment.h */; };
+		6769AAB61F77762E00468A90 /* EWSMailAttachment.m in Sources */ = {isa = PBXBuildFile; fileRef = 6769AA9D1F77762E00468A90 /* EWSMailAttachment.m */; };
+		6769AAB71F77762E00468A90 /* EWSService.h in Headers */ = {isa = PBXBuildFile; fileRef = 6769AA9E1F77762E00468A90 /* EWSService.h */; };
+		6769AAB81F77762E00468A90 /* EWSService.m in Sources */ = {isa = PBXBuildFile; fileRef = 6769AA9F1F77762E00468A90 /* EWSService.m */; };
+		6769AAB91F77762E00468A90 /* EWSHttpRequest.h in Headers */ = {isa = PBXBuildFile; fileRef = 6769AAA11F77762E00468A90 /* EWSHttpRequest.h */; };
+		6769AABA1F77762E00468A90 /* EWSHttpRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 6769AAA21F77762E00468A90 /* EWSHttpRequest.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		6769AA761F7772D400468A90 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 6769AA621F7772D400468A90 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 6769AA6A1F7772D400468A90;
+			remoteInfo = EWS;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		6769AA6B1F7772D400468A90 /* EWS.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = EWS.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		6769AA6E1F7772D400468A90 /* EWS.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = EWS.h; sourceTree = "<group>"; };
+		6769AA6F1F7772D400468A90 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		6769AA741F7772D400468A90 /* EWSTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = EWSTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		6769AA791F7772D400468A90 /* EWSTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = EWSTests.m; sourceTree = "<group>"; };
+		6769AA7B1F7772D400468A90 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		6769AA881F77762E00468A90 /* EWSEmailBoxModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EWSEmailBoxModel.h; sourceTree = "<group>"; };
+		6769AA891F77762E00468A90 /* EWSEmailBoxModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EWSEmailBoxModel.m; sourceTree = "<group>"; };
+		6769AA8A1F77762E00468A90 /* EWSInboxListModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EWSInboxListModel.h; sourceTree = "<group>"; };
+		6769AA8B1F77762E00468A90 /* EWSInboxListModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EWSInboxListModel.m; sourceTree = "<group>"; };
+		6769AA8C1F77762E00468A90 /* EWSItemContentModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EWSItemContentModel.h; sourceTree = "<group>"; };
+		6769AA8D1F77762E00468A90 /* EWSItemContentModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EWSItemContentModel.m; sourceTree = "<group>"; };
+		6769AA8E1F77762E00468A90 /* EWSMailAccountModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EWSMailAccountModel.h; sourceTree = "<group>"; };
+		6769AA8F1F77762E00468A90 /* EWSMailAccountModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EWSMailAccountModel.m; sourceTree = "<group>"; };
+		6769AA901F77762E00468A90 /* EWSMailAttachmentModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EWSMailAttachmentModel.h; sourceTree = "<group>"; };
+		6769AA911F77762E00468A90 /* EWSMailAttachmentModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EWSMailAttachmentModel.m; sourceTree = "<group>"; };
+		6769AA931F77762E00468A90 /* EWSXmlParser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EWSXmlParser.h; sourceTree = "<group>"; };
+		6769AA941F77762E00468A90 /* EWSXmlParser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EWSXmlParser.m; sourceTree = "<group>"; };
+		6769AA961F77762E00468A90 /* EWSAutodiscover.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EWSAutodiscover.h; sourceTree = "<group>"; };
+		6769AA971F77762E00468A90 /* EWSAutodiscover.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EWSAutodiscover.m; sourceTree = "<group>"; };
+		6769AA981F77762E00468A90 /* EWSInboxList.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EWSInboxList.h; sourceTree = "<group>"; };
+		6769AA991F77762E00468A90 /* EWSInboxList.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EWSInboxList.m; sourceTree = "<group>"; };
+		6769AA9A1F77762E00468A90 /* EWSItemContent.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EWSItemContent.h; sourceTree = "<group>"; };
+		6769AA9B1F77762E00468A90 /* EWSItemContent.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EWSItemContent.m; sourceTree = "<group>"; };
+		6769AA9C1F77762E00468A90 /* EWSMailAttachment.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EWSMailAttachment.h; sourceTree = "<group>"; };
+		6769AA9D1F77762E00468A90 /* EWSMailAttachment.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EWSMailAttachment.m; sourceTree = "<group>"; };
+		6769AA9E1F77762E00468A90 /* EWSService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EWSService.h; sourceTree = "<group>"; };
+		6769AA9F1F77762E00468A90 /* EWSService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EWSService.m; sourceTree = "<group>"; };
+		6769AAA11F77762E00468A90 /* EWSHttpRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EWSHttpRequest.h; sourceTree = "<group>"; };
+		6769AAA21F77762E00468A90 /* EWSHttpRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EWSHttpRequest.m; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		6769AA671F7772D400468A90 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		6769AA711F7772D400468A90 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				6769AA751F7772D400468A90 /* EWS.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		6769AA611F7772D400468A90 = {
+			isa = PBXGroup;
+			children = (
+				6769AA6D1F7772D400468A90 /* EWS */,
+				6769AA781F7772D400468A90 /* EWSTests */,
+				6769AA6C1F7772D400468A90 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		6769AA6C1F7772D400468A90 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				6769AA6B1F7772D400468A90 /* EWS.framework */,
+				6769AA741F7772D400468A90 /* EWSTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		6769AA6D1F7772D400468A90 /* EWS */ = {
+			isa = PBXGroup;
+			children = (
+				6769AA871F77762E00468A90 /* model */,
+				6769AAA01F77762E00468A90 /* net */,
+				6769AA951F77762E00468A90 /* service */,
+				6769AA921F77762E00468A90 /* util */,
+				6769AA6E1F7772D400468A90 /* EWS.h */,
+				6769AA6F1F7772D400468A90 /* Info.plist */,
+			);
+			path = EWS;
+			sourceTree = "<group>";
+		};
+		6769AA781F7772D400468A90 /* EWSTests */ = {
+			isa = PBXGroup;
+			children = (
+				6769AA791F7772D400468A90 /* EWSTests.m */,
+				6769AA7B1F7772D400468A90 /* Info.plist */,
+			);
+			path = EWSTests;
+			sourceTree = "<group>";
+		};
+		6769AA871F77762E00468A90 /* model */ = {
+			isa = PBXGroup;
+			children = (
+				6769AA881F77762E00468A90 /* EWSEmailBoxModel.h */,
+				6769AA891F77762E00468A90 /* EWSEmailBoxModel.m */,
+				6769AA8A1F77762E00468A90 /* EWSInboxListModel.h */,
+				6769AA8B1F77762E00468A90 /* EWSInboxListModel.m */,
+				6769AA8C1F77762E00468A90 /* EWSItemContentModel.h */,
+				6769AA8D1F77762E00468A90 /* EWSItemContentModel.m */,
+				6769AA8E1F77762E00468A90 /* EWSMailAccountModel.h */,
+				6769AA8F1F77762E00468A90 /* EWSMailAccountModel.m */,
+				6769AA901F77762E00468A90 /* EWSMailAttachmentModel.h */,
+				6769AA911F77762E00468A90 /* EWSMailAttachmentModel.m */,
+			);
+			path = model;
+			sourceTree = "<group>";
+		};
+		6769AA921F77762E00468A90 /* util */ = {
+			isa = PBXGroup;
+			children = (
+				6769AA931F77762E00468A90 /* EWSXmlParser.h */,
+				6769AA941F77762E00468A90 /* EWSXmlParser.m */,
+			);
+			path = util;
+			sourceTree = "<group>";
+		};
+		6769AA951F77762E00468A90 /* service */ = {
+			isa = PBXGroup;
+			children = (
+				6769AA961F77762E00468A90 /* EWSAutodiscover.h */,
+				6769AA971F77762E00468A90 /* EWSAutodiscover.m */,
+				6769AA981F77762E00468A90 /* EWSInboxList.h */,
+				6769AA991F77762E00468A90 /* EWSInboxList.m */,
+				6769AA9A1F77762E00468A90 /* EWSItemContent.h */,
+				6769AA9B1F77762E00468A90 /* EWSItemContent.m */,
+				6769AA9C1F77762E00468A90 /* EWSMailAttachment.h */,
+				6769AA9D1F77762E00468A90 /* EWSMailAttachment.m */,
+				6769AA9E1F77762E00468A90 /* EWSService.h */,
+				6769AA9F1F77762E00468A90 /* EWSService.m */,
+			);
+			path = service;
+			sourceTree = "<group>";
+		};
+		6769AAA01F77762E00468A90 /* net */ = {
+			isa = PBXGroup;
+			children = (
+				6769AAA11F77762E00468A90 /* EWSHttpRequest.h */,
+				6769AAA21F77762E00468A90 /* EWSHttpRequest.m */,
+			);
+			path = net;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXHeadersBuildPhase section */
+		6769AA681F7772D400468A90 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				6769AAAB1F77762E00468A90 /* EWSMailAttachmentModel.h in Headers */,
+				6769AAA51F77762E00468A90 /* EWSInboxListModel.h in Headers */,
+				6769AAB51F77762E00468A90 /* EWSMailAttachment.h in Headers */,
+				6769AAA71F77762E00468A90 /* EWSItemContentModel.h in Headers */,
+				6769AA7C1F7772D400468A90 /* EWS.h in Headers */,
+				6769AAB91F77762E00468A90 /* EWSHttpRequest.h in Headers */,
+				6769AAAD1F77762E00468A90 /* EWSXmlParser.h in Headers */,
+				6769AAA91F77762E00468A90 /* EWSMailAccountModel.h in Headers */,
+				6769AAAF1F77762E00468A90 /* EWSAutodiscover.h in Headers */,
+				6769AAB31F77762E00468A90 /* EWSItemContent.h in Headers */,
+				6769AAB11F77762E00468A90 /* EWSInboxList.h in Headers */,
+				6769AAB71F77762E00468A90 /* EWSService.h in Headers */,
+				6769AAA31F77762E00468A90 /* EWSEmailBoxModel.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXHeadersBuildPhase section */
+
+/* Begin PBXNativeTarget section */
+		6769AA6A1F7772D400468A90 /* EWS */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 6769AA7F1F7772D400468A90 /* Build configuration list for PBXNativeTarget "EWS" */;
+			buildPhases = (
+				6769AA661F7772D400468A90 /* Sources */,
+				6769AA671F7772D400468A90 /* Frameworks */,
+				6769AA681F7772D400468A90 /* Headers */,
+				6769AA691F7772D400468A90 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = EWS;
+			productName = EWS;
+			productReference = 6769AA6B1F7772D400468A90 /* EWS.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+		6769AA731F7772D400468A90 /* EWSTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 6769AA821F7772D400468A90 /* Build configuration list for PBXNativeTarget "EWSTests" */;
+			buildPhases = (
+				6769AA701F7772D400468A90 /* Sources */,
+				6769AA711F7772D400468A90 /* Frameworks */,
+				6769AA721F7772D400468A90 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				6769AA771F7772D400468A90 /* PBXTargetDependency */,
+			);
+			name = EWSTests;
+			productName = EWSTests;
+			productReference = 6769AA741F7772D400468A90 /* EWSTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		6769AA621F7772D400468A90 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0900;
+				ORGANIZATIONNAME = "刘林";
+				TargetAttributes = {
+					6769AA6A1F7772D400468A90 = {
+						CreatedOnToolsVersion = 9.0;
+						ProvisioningStyle = Automatic;
+					};
+					6769AA731F7772D400468A90 = {
+						CreatedOnToolsVersion = 9.0;
+						ProvisioningStyle = Automatic;
+					};
+				};
+			};
+			buildConfigurationList = 6769AA651F7772D400468A90 /* Build configuration list for PBXProject "EWS" */;
+			compatibilityVersion = "Xcode 8.0";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = 6769AA611F7772D400468A90;
+			productRefGroup = 6769AA6C1F7772D400468A90 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				6769AA6A1F7772D400468A90 /* EWS */,
+				6769AA731F7772D400468A90 /* EWSTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		6769AA691F7772D400468A90 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		6769AA721F7772D400468A90 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		6769AA661F7772D400468A90 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				6769AAAC1F77762E00468A90 /* EWSMailAttachmentModel.m in Sources */,
+				6769AAB41F77762E00468A90 /* EWSItemContent.m in Sources */,
+				6769AAAA1F77762E00468A90 /* EWSMailAccountModel.m in Sources */,
+				6769AAA61F77762E00468A90 /* EWSInboxListModel.m in Sources */,
+				6769AAB01F77762E00468A90 /* EWSAutodiscover.m in Sources */,
+				6769AAB21F77762E00468A90 /* EWSInboxList.m in Sources */,
+				6769AAB81F77762E00468A90 /* EWSService.m in Sources */,
+				6769AABA1F77762E00468A90 /* EWSHttpRequest.m in Sources */,
+				6769AAA81F77762E00468A90 /* EWSItemContentModel.m in Sources */,
+				6769AAAE1F77762E00468A90 /* EWSXmlParser.m in Sources */,
+				6769AAA41F77762E00468A90 /* EWSEmailBoxModel.m in Sources */,
+				6769AAB61F77762E00468A90 /* EWSMailAttachment.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		6769AA701F7772D400468A90 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				6769AA7A1F7772D400468A90 /* EWSTests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		6769AA771F7772D400468A90 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 6769AA6A1F7772D400468A90 /* EWS */;
+			targetProxy = 6769AA761F7772D400468A90 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		6769AA7D1F7772D400468A90 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		6769AA7E1F7772D400468A90 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+		6769AA801F7772D400468A90 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "";
+				CODE_SIGN_STYLE = Automatic;
+				DEFINES_MODULE = YES;
+				DEVELOPMENT_TEAM = EQ33C74W2R;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = EWS/Info.plist;
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = org.openpanda.EWS;
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		6769AA811F7772D400468A90 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "";
+				CODE_SIGN_STYLE = Automatic;
+				DEFINES_MODULE = YES;
+				DEVELOPMENT_TEAM = EQ33C74W2R;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = EWS/Info.plist;
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = org.openpanda.EWS;
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		6769AA831F7772D400468A90 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = EQ33C74W2R;
+				INFOPLIST_FILE = EWSTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = org.openpanda.EWSTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		6769AA841F7772D400468A90 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = EQ33C74W2R;
+				INFOPLIST_FILE = EWSTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = org.openpanda.EWSTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		6769AA651F7772D400468A90 /* Build configuration list for PBXProject "EWS" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				6769AA7D1F7772D400468A90 /* Debug */,
+				6769AA7E1F7772D400468A90 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		6769AA7F1F7772D400468A90 /* Build configuration list for PBXNativeTarget "EWS" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				6769AA801F7772D400468A90 /* Debug */,
+				6769AA811F7772D400468A90 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		6769AA821F7772D400468A90 /* Build configuration list for PBXNativeTarget "EWSTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				6769AA831F7772D400468A90 /* Debug */,
+				6769AA841F7772D400468A90 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 6769AA621F7772D400468A90 /* Project object */;
+}
