@@ -8,7 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		6769AA751F7772D400468A90 /* EWS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6769AA6B1F7772D400468A90 /* EWS.framework */; };
-		6769AA7A1F7772D400468A90 /* EWSTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 6769AA791F7772D400468A90 /* EWSTests.m */; };
 		6769AA7C1F7772D400468A90 /* EWS.h in Headers */ = {isa = PBXBuildFile; fileRef = 6769AA6E1F7772D400468A90 /* EWS.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		6769AAA31F77762E00468A90 /* EWSEmailBoxModel.h in Headers */ = {isa = PBXBuildFile; fileRef = 6769AA881F77762E00468A90 /* EWSEmailBoxModel.h */; };
 		6769AAA41F77762E00468A90 /* EWSEmailBoxModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 6769AA891F77762E00468A90 /* EWSEmailBoxModel.m */; };
@@ -22,18 +21,22 @@
 		6769AAAC1F77762E00468A90 /* EWSMailAttachmentModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 6769AA911F77762E00468A90 /* EWSMailAttachmentModel.m */; };
 		6769AAAD1F77762E00468A90 /* EWSXmlParser.h in Headers */ = {isa = PBXBuildFile; fileRef = 6769AA931F77762E00468A90 /* EWSXmlParser.h */; };
 		6769AAAE1F77762E00468A90 /* EWSXmlParser.m in Sources */ = {isa = PBXBuildFile; fileRef = 6769AA941F77762E00468A90 /* EWSXmlParser.m */; };
-		6769AAAF1F77762E00468A90 /* EWSAutodiscover.h in Headers */ = {isa = PBXBuildFile; fileRef = 6769AA961F77762E00468A90 /* EWSAutodiscover.h */; };
-		6769AAB01F77762E00468A90 /* EWSAutodiscover.m in Sources */ = {isa = PBXBuildFile; fileRef = 6769AA971F77762E00468A90 /* EWSAutodiscover.m */; };
-		6769AAB11F77762E00468A90 /* EWSInboxList.h in Headers */ = {isa = PBXBuildFile; fileRef = 6769AA981F77762E00468A90 /* EWSInboxList.h */; };
-		6769AAB21F77762E00468A90 /* EWSInboxList.m in Sources */ = {isa = PBXBuildFile; fileRef = 6769AA991F77762E00468A90 /* EWSInboxList.m */; };
-		6769AAB31F77762E00468A90 /* EWSItemContent.h in Headers */ = {isa = PBXBuildFile; fileRef = 6769AA9A1F77762E00468A90 /* EWSItemContent.h */; };
-		6769AAB41F77762E00468A90 /* EWSItemContent.m in Sources */ = {isa = PBXBuildFile; fileRef = 6769AA9B1F77762E00468A90 /* EWSItemContent.m */; };
-		6769AAB51F77762E00468A90 /* EWSMailAttachment.h in Headers */ = {isa = PBXBuildFile; fileRef = 6769AA9C1F77762E00468A90 /* EWSMailAttachment.h */; };
-		6769AAB61F77762E00468A90 /* EWSMailAttachment.m in Sources */ = {isa = PBXBuildFile; fileRef = 6769AA9D1F77762E00468A90 /* EWSMailAttachment.m */; };
 		6769AAB71F77762E00468A90 /* EWSService.h in Headers */ = {isa = PBXBuildFile; fileRef = 6769AA9E1F77762E00468A90 /* EWSService.h */; };
 		6769AAB81F77762E00468A90 /* EWSService.m in Sources */ = {isa = PBXBuildFile; fileRef = 6769AA9F1F77762E00468A90 /* EWSService.m */; };
 		6769AAB91F77762E00468A90 /* EWSHttpRequest.h in Headers */ = {isa = PBXBuildFile; fileRef = 6769AAA11F77762E00468A90 /* EWSHttpRequest.h */; };
 		6769AABA1F77762E00468A90 /* EWSHttpRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 6769AAA21F77762E00468A90 /* EWSHttpRequest.m */; };
+		678858711F85B2A100D02A3E /* EWSAbstractRequest.h in Headers */ = {isa = PBXBuildFile; fileRef = 6788586F1F85B2A100D02A3E /* EWSAbstractRequest.h */; };
+		678858721F85B2A200D02A3E /* EWSAbstractRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 678858701F85B2A100D02A3E /* EWSAbstractRequest.m */; };
+		678858741F85B2BB00D02A3E /* EWSApiAdapter.h in Headers */ = {isa = PBXBuildFile; fileRef = 678858731F85B2BB00D02A3E /* EWSApiAdapter.h */; };
+		6788587D1F85BE9B00D02A3E /* EWSAutoDiscoverAdapter.h in Headers */ = {isa = PBXBuildFile; fileRef = 6788587B1F85BE9B00D02A3E /* EWSAutoDiscoverAdapter.h */; };
+		6788587F1F85BEC900D02A3E /* EWSAutoDiscoverAdapter.m in Sources */ = {isa = PBXBuildFile; fileRef = 6788587E1F85BEC900D02A3E /* EWSAutoDiscoverAdapter.m */; };
+		678858811F85C01200D02A3E /* EWSServiceTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 678858801F85C01200D02A3E /* EWSServiceTest.m */; };
+		678858881F85C2FA00D02A3E /* EWSFindItemAdapter.h in Headers */ = {isa = PBXBuildFile; fileRef = 678858861F85C2FA00D02A3E /* EWSFindItemAdapter.h */; };
+		678858891F85C2FA00D02A3E /* EWSFindItemAdapter.m in Sources */ = {isa = PBXBuildFile; fileRef = 678858871F85C2FA00D02A3E /* EWSFindItemAdapter.m */; };
+		6788588C1F85C80E00D02A3E /* EWSGetItemAdapter.h in Headers */ = {isa = PBXBuildFile; fileRef = 6788588A1F85C80E00D02A3E /* EWSGetItemAdapter.h */; };
+		6788588D1F85C80E00D02A3E /* EWSGetItemAdapter.m in Sources */ = {isa = PBXBuildFile; fileRef = 6788588B1F85C80E00D02A3E /* EWSGetItemAdapter.m */; };
+		678858941F85D3A000D02A3E /* EWSGetAttachmentAdapter.h in Headers */ = {isa = PBXBuildFile; fileRef = 678858921F85D3A000D02A3E /* EWSGetAttachmentAdapter.h */; };
+		678858951F85D3A000D02A3E /* EWSGetAttachmentAdapter.m in Sources */ = {isa = PBXBuildFile; fileRef = 678858931F85D3A000D02A3E /* EWSGetAttachmentAdapter.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -51,7 +54,6 @@
 		6769AA6E1F7772D400468A90 /* EWS.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = EWS.h; sourceTree = "<group>"; };
 		6769AA6F1F7772D400468A90 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		6769AA741F7772D400468A90 /* EWSTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = EWSTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		6769AA791F7772D400468A90 /* EWSTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = EWSTests.m; sourceTree = "<group>"; };
 		6769AA7B1F7772D400468A90 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		6769AA881F77762E00468A90 /* EWSEmailBoxModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EWSEmailBoxModel.h; sourceTree = "<group>"; };
 		6769AA891F77762E00468A90 /* EWSEmailBoxModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EWSEmailBoxModel.m; sourceTree = "<group>"; };
@@ -65,18 +67,22 @@
 		6769AA911F77762E00468A90 /* EWSMailAttachmentModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EWSMailAttachmentModel.m; sourceTree = "<group>"; };
 		6769AA931F77762E00468A90 /* EWSXmlParser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EWSXmlParser.h; sourceTree = "<group>"; };
 		6769AA941F77762E00468A90 /* EWSXmlParser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EWSXmlParser.m; sourceTree = "<group>"; };
-		6769AA961F77762E00468A90 /* EWSAutodiscover.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EWSAutodiscover.h; sourceTree = "<group>"; };
-		6769AA971F77762E00468A90 /* EWSAutodiscover.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EWSAutodiscover.m; sourceTree = "<group>"; };
-		6769AA981F77762E00468A90 /* EWSInboxList.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EWSInboxList.h; sourceTree = "<group>"; };
-		6769AA991F77762E00468A90 /* EWSInboxList.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EWSInboxList.m; sourceTree = "<group>"; };
-		6769AA9A1F77762E00468A90 /* EWSItemContent.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EWSItemContent.h; sourceTree = "<group>"; };
-		6769AA9B1F77762E00468A90 /* EWSItemContent.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EWSItemContent.m; sourceTree = "<group>"; };
-		6769AA9C1F77762E00468A90 /* EWSMailAttachment.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EWSMailAttachment.h; sourceTree = "<group>"; };
-		6769AA9D1F77762E00468A90 /* EWSMailAttachment.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EWSMailAttachment.m; sourceTree = "<group>"; };
 		6769AA9E1F77762E00468A90 /* EWSService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EWSService.h; sourceTree = "<group>"; };
 		6769AA9F1F77762E00468A90 /* EWSService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EWSService.m; sourceTree = "<group>"; };
 		6769AAA11F77762E00468A90 /* EWSHttpRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EWSHttpRequest.h; sourceTree = "<group>"; };
 		6769AAA21F77762E00468A90 /* EWSHttpRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EWSHttpRequest.m; sourceTree = "<group>"; };
+		6788586F1F85B2A100D02A3E /* EWSAbstractRequest.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = EWSAbstractRequest.h; sourceTree = "<group>"; };
+		678858701F85B2A100D02A3E /* EWSAbstractRequest.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = EWSAbstractRequest.m; sourceTree = "<group>"; };
+		678858731F85B2BB00D02A3E /* EWSApiAdapter.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = EWSApiAdapter.h; sourceTree = "<group>"; };
+		6788587B1F85BE9B00D02A3E /* EWSAutoDiscoverAdapter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EWSAutoDiscoverAdapter.h; sourceTree = "<group>"; };
+		6788587E1F85BEC900D02A3E /* EWSAutoDiscoverAdapter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EWSAutoDiscoverAdapter.m; sourceTree = "<group>"; };
+		678858801F85C01200D02A3E /* EWSServiceTest.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = EWSServiceTest.m; sourceTree = "<group>"; };
+		678858861F85C2FA00D02A3E /* EWSFindItemAdapter.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = EWSFindItemAdapter.h; sourceTree = "<group>"; };
+		678858871F85C2FA00D02A3E /* EWSFindItemAdapter.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = EWSFindItemAdapter.m; sourceTree = "<group>"; };
+		6788588A1F85C80E00D02A3E /* EWSGetItemAdapter.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = EWSGetItemAdapter.h; sourceTree = "<group>"; };
+		6788588B1F85C80E00D02A3E /* EWSGetItemAdapter.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = EWSGetItemAdapter.m; sourceTree = "<group>"; };
+		678858921F85D3A000D02A3E /* EWSGetAttachmentAdapter.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = EWSGetAttachmentAdapter.h; sourceTree = "<group>"; };
+		678858931F85D3A000D02A3E /* EWSGetAttachmentAdapter.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = EWSGetAttachmentAdapter.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -119,6 +125,8 @@
 		6769AA6D1F7772D400468A90 /* EWS */ = {
 			isa = PBXGroup;
 			children = (
+				678858751F85B8A700D02A3E /* adapter */,
+				6788586A1F85B21E00D02A3E /* reqeust */,
 				6769AA871F77762E00468A90 /* model */,
 				6769AAA01F77762E00468A90 /* net */,
 				6769AA951F77762E00468A90 /* service */,
@@ -132,8 +140,8 @@
 		6769AA781F7772D400468A90 /* EWSTests */ = {
 			isa = PBXGroup;
 			children = (
-				6769AA791F7772D400468A90 /* EWSTests.m */,
 				6769AA7B1F7772D400468A90 /* Info.plist */,
+				678858801F85C01200D02A3E /* EWSServiceTest.m */,
 			);
 			path = EWSTests;
 			sourceTree = "<group>";
@@ -167,14 +175,6 @@
 		6769AA951F77762E00468A90 /* service */ = {
 			isa = PBXGroup;
 			children = (
-				6769AA961F77762E00468A90 /* EWSAutodiscover.h */,
-				6769AA971F77762E00468A90 /* EWSAutodiscover.m */,
-				6769AA981F77762E00468A90 /* EWSInboxList.h */,
-				6769AA991F77762E00468A90 /* EWSInboxList.m */,
-				6769AA9A1F77762E00468A90 /* EWSItemContent.h */,
-				6769AA9B1F77762E00468A90 /* EWSItemContent.m */,
-				6769AA9C1F77762E00468A90 /* EWSMailAttachment.h */,
-				6769AA9D1F77762E00468A90 /* EWSMailAttachment.m */,
 				6769AA9E1F77762E00468A90 /* EWSService.h */,
 				6769AA9F1F77762E00468A90 /* EWSService.m */,
 			);
@@ -190,6 +190,31 @@
 			path = net;
 			sourceTree = "<group>";
 		};
+		6788586A1F85B21E00D02A3E /* reqeust */ = {
+			isa = PBXGroup;
+			children = (
+				6788586F1F85B2A100D02A3E /* EWSAbstractRequest.h */,
+				678858701F85B2A100D02A3E /* EWSAbstractRequest.m */,
+				678858731F85B2BB00D02A3E /* EWSApiAdapter.h */,
+			);
+			path = reqeust;
+			sourceTree = "<group>";
+		};
+		678858751F85B8A700D02A3E /* adapter */ = {
+			isa = PBXGroup;
+			children = (
+				6788587B1F85BE9B00D02A3E /* EWSAutoDiscoverAdapter.h */,
+				6788587E1F85BEC900D02A3E /* EWSAutoDiscoverAdapter.m */,
+				678858861F85C2FA00D02A3E /* EWSFindItemAdapter.h */,
+				678858871F85C2FA00D02A3E /* EWSFindItemAdapter.m */,
+				6788588A1F85C80E00D02A3E /* EWSGetItemAdapter.h */,
+				6788588B1F85C80E00D02A3E /* EWSGetItemAdapter.m */,
+				678858921F85D3A000D02A3E /* EWSGetAttachmentAdapter.h */,
+				678858931F85D3A000D02A3E /* EWSGetAttachmentAdapter.m */,
+			);
+			path = adapter;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXHeadersBuildPhase section */
@@ -199,15 +224,17 @@
 			files = (
 				6769AAAB1F77762E00468A90 /* EWSMailAttachmentModel.h in Headers */,
 				6769AAA51F77762E00468A90 /* EWSInboxListModel.h in Headers */,
-				6769AAB51F77762E00468A90 /* EWSMailAttachment.h in Headers */,
 				6769AAA71F77762E00468A90 /* EWSItemContentModel.h in Headers */,
 				6769AA7C1F7772D400468A90 /* EWS.h in Headers */,
+				678858741F85B2BB00D02A3E /* EWSApiAdapter.h in Headers */,
+				6788587D1F85BE9B00D02A3E /* EWSAutoDiscoverAdapter.h in Headers */,
 				6769AAB91F77762E00468A90 /* EWSHttpRequest.h in Headers */,
+				678858941F85D3A000D02A3E /* EWSGetAttachmentAdapter.h in Headers */,
+				6788588C1F85C80E00D02A3E /* EWSGetItemAdapter.h in Headers */,
 				6769AAAD1F77762E00468A90 /* EWSXmlParser.h in Headers */,
 				6769AAA91F77762E00468A90 /* EWSMailAccountModel.h in Headers */,
-				6769AAAF1F77762E00468A90 /* EWSAutodiscover.h in Headers */,
-				6769AAB31F77762E00468A90 /* EWSItemContent.h in Headers */,
-				6769AAB11F77762E00468A90 /* EWSInboxList.h in Headers */,
+				678858881F85C2FA00D02A3E /* EWSFindItemAdapter.h in Headers */,
+				678858711F85B2A100D02A3E /* EWSAbstractRequest.h in Headers */,
 				6769AAB71F77762E00468A90 /* EWSService.h in Headers */,
 				6769AAA31F77762E00468A90 /* EWSEmailBoxModel.h in Headers */,
 			);
@@ -312,17 +339,18 @@
 			buildActionMask = 2147483647;
 			files = (
 				6769AAAC1F77762E00468A90 /* EWSMailAttachmentModel.m in Sources */,
-				6769AAB41F77762E00468A90 /* EWSItemContent.m in Sources */,
 				6769AAAA1F77762E00468A90 /* EWSMailAccountModel.m in Sources */,
 				6769AAA61F77762E00468A90 /* EWSInboxListModel.m in Sources */,
-				6769AAB01F77762E00468A90 /* EWSAutodiscover.m in Sources */,
-				6769AAB21F77762E00468A90 /* EWSInboxList.m in Sources */,
+				678858721F85B2A200D02A3E /* EWSAbstractRequest.m in Sources */,
+				6788588D1F85C80E00D02A3E /* EWSGetItemAdapter.m in Sources */,
 				6769AAB81F77762E00468A90 /* EWSService.m in Sources */,
 				6769AABA1F77762E00468A90 /* EWSHttpRequest.m in Sources */,
+				678858951F85D3A000D02A3E /* EWSGetAttachmentAdapter.m in Sources */,
 				6769AAA81F77762E00468A90 /* EWSItemContentModel.m in Sources */,
 				6769AAAE1F77762E00468A90 /* EWSXmlParser.m in Sources */,
 				6769AAA41F77762E00468A90 /* EWSEmailBoxModel.m in Sources */,
-				6769AAB61F77762E00468A90 /* EWSMailAttachment.m in Sources */,
+				678858891F85C2FA00D02A3E /* EWSFindItemAdapter.m in Sources */,
+				6788587F1F85BEC900D02A3E /* EWSAutoDiscoverAdapter.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -330,7 +358,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				6769AA7A1F7772D400468A90 /* EWSTests.m in Sources */,
+				678858811F85C01200D02A3E /* EWSServiceTest.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

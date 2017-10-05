@@ -1,42 +1,16 @@
 
 #import "EWSService.h"
-#import "EWSAutodiscover.h"
-#import "EWSInboxList.h"
-#import "EWSItemContent.h"
-#import "EWSMailAttachment.h"
+#import "EWSEmailBoxModel.h"
+#import "EWSAutoDiscoverAdapter.h"
+#import "EWSAbstractRequest.h"
+#import "EWSFindItemAdapter.h"
+#import "EWSGetItemAdapter.h"
+#import "EWSGetAttachmentAdapter.h"
 
-static EWSService *instance = nil;
+@implementation EWSService
 
-typedef void (^ManagerGetAllItemContentBlock)(NSArray *allItemArray, NSError *error);
-typedef void (^ManagerGetItemContentBlock)(EWSItemContentModel *model, NSError *error);
-typedef void (^ManagerGetAllAttachmentCompleteBlock)();
-typedef void (^ManagerGetInboxListBlock)(NSArray *inboxList, NSError *error);
-typedef void (^ManagerGetAttachmentCompleteBlock)();
-
-@implementation EWSService{
-    NSArray *_inboxList;
-    NSMutableArray *_allItemContentArray;
-    NSError *_error;
-    
-    ManagerGetAllItemContentBlock _managerGetAllItemContentBlock;
-    ManagerGetItemContentBlock _managerGetItemContentBlock;
-    ManagerGetAllAttachmentCompleteBlock _managerGetAllAttachmentCompleteBlock;
-    ManagerGetInboxListBlock _managerGetInboxListBlock;
-    ManagerGetAttachmentCompleteBlock _managerGetAttachmentCompleteBlock;
-}
-
-@synthesize ewsEmailBoxModel;
-
--(instancetype)init{
-    self = [super init];
-    if (!self) {
-        return nil;
-    }
-    
-    return self;
-}
-
-+(id)sharedInstance{
++(instancetype)sharedInstance{
+    static EWSService* instance = nil;
     static dispatch_once_t onceToken;
     dispatch_once(&onceToken, ^{
         instance = [[EWSService alloc] init];
@@ -44,130 +18,73 @@ typedef void (^ManagerGetAttachmentCompleteBlock)();
     return instance;
 }
 
--(void)setEmailBoxInfoEmailAddress:(NSString *)emailAddress password:(NSString *)password description:(NSString *)description mailServerAddress:(NSString *)mailServerAddress domain:(NSString *)domain{
-    ewsEmailBoxModel = [[EWSEmailBoxModel alloc] init];
-    ewsEmailBoxModel.emailAddress = @"zhangsan@rainy.com.cn";
-    ewsEmailBoxModel.password = @"foreverht123ABC";
-    ewsEmailBoxModel.mailServerAddress = @"";
-    ewsEmailBoxModel.domain = @"";
+-(void)queryEwsUrlByAutoDiscovery:(void(^)(NSString* ewsUrl,NSError* error))resultBlock{
+    NSArray *address = [self.ewsEmailBoxModel.emailAddress componentsSeparatedByString:@"@"];
     
-    if (!(ewsEmailBoxModel.emailAddress&&ewsEmailBoxModel.password)) {
-        NSLog(@"emailAddress and password can't be nil");
-    }
-    else if (!ewsEmailBoxModel.mailServerAddress||[ewsEmailBoxModel.mailServerAddress isEqualToString:@""]) {
-        [self autodiscover];
-    }
+    NSMutableArray* autodiscoverAddressList = [[NSMutableArray alloc] init];
     
-}
-
--(void)autodiscover{
-    [[[EWSAutodiscover alloc] init] autoDiscover:ewsEmailBoxModel.emailAddress resultBlock:^(NSString *ewsUrl, NSError *error) {
-        if (error) {
-            NSLog(@"error:%@",error);
-        }
-        ewsEmailBoxModel.mailServerAddress = ewsUrl;
-    }];
-}
-
--(void)getInboxListComplete:(void (^)(NSArray *inboxList, NSError *error))managerGetInboxListBlock{
-    _managerGetInboxListBlock = managerGetInboxListBlock;
-    [[EWSInboxList sharedInstance] getInboxListWithEWSUrl:ewsEmailBoxModel.mailServerAddress resultBlock:^(NSMutableArray *inboxList, NSError *error) {
-        if (error) {
-            _error = error;
-        }
-        else{
-            _error = nil;
-        }
-        if (_managerGetInboxListBlock) {
-            _managerGetInboxListBlock([inboxList copy],error);
-            [inboxList removeAllObjects];
-            inboxList = nil;
-        }
-        
-    }];
+    [autodiscoverAddressList addObject:[NSString stringWithFormat:@"https://autodiscover.%@/autodiscover/autodiscover.xml",[address objectAtIndex:1]]];
+    [autodiscoverAddressList addObject:[NSString stringWithFormat:@"https://%@/autodiscover/autodiscover.xml",[address objectAtIndex:1]]];
+    [autodiscoverAddressList addObject:[NSString stringWithFormat:@"https://email.%@/autodiscover/autodiscover.xml",[address objectAtIndex:1]]];
     
-}
-
--(void)getItemnContentWithInboxListModel:(EWSInboxListModel *)model complete:(void (^)(EWSItemContentModel *model, NSError *error))managerGetItemContentBlock{
-    _managerGetItemContentBlock = managerGetItemContentBlock;
-    [[EWSItemContent sharedInstance] getItemContentWithEWSUrl:ewsEmailBoxModel.mailServerAddress item:model finishBlock:^(EWSItemContentModel *itemContentInfo, NSError *error) {
-        if (error) {
-            _error = error;
-        }
-        else{
-            _error = nil;
-        }
-        if (_managerGetItemContentBlock) {
-            _managerGetItemContentBlock(itemContentInfo, _error);
-        }
-    }];
-}
-
-
-
--(void)getAllItemContent:(void (^)(NSArray *allItemArray, NSError *error))managerGetAllItemContentBlock{
-    _managerGetAllItemContentBlock = managerGetAllItemContentBlock;
-    [[EWSInboxList sharedInstance] getInboxListWithEWSUrl:ewsEmailBoxModel.mailServerAddress resultBlock:^(NSMutableArray *inboxList, NSError *error) {
-        if (error) {
-            NSLog(@"GetInboxListError:%@",error);
-        }
-        _inboxList = inboxList;
-        _allItemContentArray = [[NSMutableArray alloc] init];
-        [self getItemContentRecursion:0];
-    }];
-    
-}
-
--(void)getItemContentRecursion:(int)index{
-    if (index<_inboxList.count) {
-        [[EWSItemContent sharedInstance] getItemContentWithEWSUrl:ewsEmailBoxModel.mailServerAddress item:_inboxList[index] finishBlock:^(EWSItemContentModel *itemContentInfo, NSError *error) {
-            if (error) {
-                _error = error;
+    for (NSString* addressList in autodiscoverAddressList) {
+        EWSAutoDiscoverAdapter* autoDiscovery = [[EWSAutoDiscoverAdapter alloc] initWith:addressList emailAddress:self.ewsEmailBoxModel.emailAddress];
+        EWSAbstractRequest* request  = [[EWSAbstractRequest alloc] initWith:self.ewsEmailBoxModel apiAdapter:autoDiscovery];
+        [request request:^(id result, NSError *error) {
+            if (result) {
+                NSString* stringResult = (NSString*)result;
+                resultBlock(stringResult,nil);
+            }else{
+                resultBlock(nil,error);
             }
-            else{
-                _error = nil;
-            }
-            
-            [_allItemContentArray addObject:itemContentInfo];
-            [self getItemContentRecursion:index+1];
         }];
     }
-    else{
-        if (_managerGetAllItemContentBlock) {
-            
-            _managerGetAllItemContentBlock([_allItemContentArray copy], _error);
-            
-            [_allItemContentArray removeAllObjects];
-            _allItemContentArray = nil;
-        }
-    }
 }
 
--(void)getMailAllAttachmentWithItemContentInfo:(EWSItemContentModel *)itemContentInfo complete:(void (^)())managerGetAllAttachmentCompleteBlock{
-    _managerGetAllAttachmentCompleteBlock = managerGetAllAttachmentCompleteBlock;
-    [self getMailAttachmentRecursion:itemContentInfo index:0];
+-(void)fetchInboxItems:(void(^)(NSArray* items,NSError* error))resultBlock{
+    EWSFindItemAdapter* findItemAdapter = [[EWSFindItemAdapter alloc] initWith:@"inbox"];
+    EWSAbstractRequest* request  = [[EWSAbstractRequest alloc] initWith:self.ewsEmailBoxModel apiAdapter:findItemAdapter];
+    
+    [request request:^(id result, NSError *error) {
+        if (resultBlock) {
+            NSArray* list = (NSArray*)result;
+            resultBlock(list,nil);
+        }else{
+            resultBlock(nil,error);
+        }
+    }];
+
 }
 
--(void)getMailAttachmentRecursion:(EWSItemContentModel *)itemContentInfo index:(int)i {
-    [[EWSMailAttachment sharedInstance] getAttachmentWithEWSUrl:ewsEmailBoxModel.mailServerAddress attachmentInfo:itemContentInfo.attachmentList[i] complete:^{
-        if (i==itemContentInfo.attachmentList.count-1) {
-            if (_managerGetAllAttachmentCompleteBlock) {
-                _managerGetAllAttachmentCompleteBlock();
-            }
-        }
-        else{
-            [self getMailAttachmentRecursion:itemContentInfo index:i+1];
+-(void)fetchItemContent:(EWSInboxListModel*)model resultBlock:(void(^)(EWSItemContentModel* contentModel,NSError* error))resultBlock{
+    EWSGetItemAdapter* getItemAdapter = [[EWSGetItemAdapter alloc] initWith:model];
+    
+    EWSAbstractRequest* request  = [[EWSAbstractRequest alloc] initWith:self.ewsEmailBoxModel apiAdapter:getItemAdapter];
+    
+    [request request:^(id result, NSError *error) {
+        if (resultBlock) {
+            EWSItemContentModel* contentModel = (EWSItemContentModel*)result;
+            resultBlock(contentModel,nil);
+        }else{
+            resultBlock(nil,error);
         }
     }];
 }
 
--(void)getMailAttachmentWithAttachmentModel:(EWSMailAttachmentModel *)attachmentModel complete:(void (^)())managerGetAttachmentCompleteBlock{
-    _managerGetAttachmentCompleteBlock = managerGetAttachmentCompleteBlock;
-    [[EWSMailAttachment sharedInstance] getAttachmentWithEWSUrl:ewsEmailBoxModel.mailServerAddress attachmentInfo:attachmentModel complete:^{
-        if (_managerGetAttachmentCompleteBlock) {
-            _managerGetAttachmentCompleteBlock();
+-(void)fetchAttachment:(NSString*)attachmentId resultBlock:(void(^)(NSData* data,NSError* error))resultBlock{
+    EWSGetAttachmentAdapter* attachmentAdapter = [[EWSGetAttachmentAdapter alloc] initWith:attachmentId];
+    
+    EWSAbstractRequest* request  = [[EWSAbstractRequest alloc] initWith:self.ewsEmailBoxModel apiAdapter:attachmentAdapter];
+    
+    [request request:^(id result, NSError *error) {
+        if (resultBlock) {
+            NSData* data = (NSData*)result;
+            resultBlock(data,nil);
+        }else{
+            resultBlock(nil,error);
         }
     }];
+
 }
 
 @end

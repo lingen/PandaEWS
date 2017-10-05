@@ -1,55 +1,54 @@
+//
+//  EWSGetItemAdapter.m
+//  EWS
+//
+//  Created by 刘林 on 2017/10/5.
+//  Copyright © 2017年 刘林. All rights reserved.
+//
 
-#import "EWSItemContent.h"
-#import "EWSHttpRequest.h"
+#import "EWSGetItemAdapter.h"
+#import "EWSInboxListModel.h"
 #import "EWSXmlParser.h"
+#import "EWSMailAccountModel.h"
+#import "EWSItemContentModel.h"
+#import "EWSMailAttachmentModel.h"
+@interface EWSGetItemAdapter()
 
-typedef void (^GetItemContentBlock)(EWSItemContentModel *itemContentInfo, NSError *error);
+@property (nonatomic,strong) EWSInboxListModel* model;
 
-@implementation EWSItemContent{
-    EWSHttpRequest *request;
-    NSMutableData *eData;
-    EWSXmlParser *parser;
-    
-    GetItemContentBlock _getItemContentBlock;
-    
-    NSString *currentElement;
-    EWSMailAccountModel *_mailAccountModel;
-    EWSItemContentModel *_itemContentModel;
-    EWSMailAttachmentModel *_mailAttachmentModel;
-    NSMutableString *_contentString;
-    NSMutableString *_itemSubject;
-    NSError *_error;
-}
+@property (nonatomic,strong) EWSXmlParser *parser;
 
-+(instancetype)sharedInstance{
-    static EWSItemContent* instance = nil;
-    static dispatch_once_t onceToken;
-    dispatch_once(&onceToken, ^{
-        instance = [[EWSItemContent alloc] init];
-    });
-    return instance;
-}
+@property (nonatomic,strong) NSString *currentElement;
 
--(instancetype)init{
-    self = [super init];
-    if (!self) {
-        return nil;
+@property (nonatomic,strong) void(^resultBlock)(id result);
+
+@property (nonatomic,strong) EWSMailAccountModel *mailAccountModel;
+
+@property (nonatomic,strong) EWSItemContentModel *itemContentModel;
+
+@property (nonatomic,strong) EWSMailAttachmentModel *mailAttachmentModel;
+
+@property (nonatomic,strong) NSMutableString* contentString;;
+
+@property (nonatomic,strong) NSMutableString* itemSubject;;
+
+
+@end
+
+@implementation EWSGetItemAdapter
+
+-(instancetype)initWith:(EWSInboxListModel*)model{
+    if (self = [super init]) {
+        self.model = model;
+        self.parser = [[EWSXmlParser alloc] init];
+        self.contentString = [[NSMutableString alloc] init];
+        self.itemSubject = [[NSMutableString alloc] init];
+        self.itemContentModel = [[EWSItemContentModel alloc] init];
     }
-    [self initData];
-    
     return self;
 }
 
--(void)initData{
-    eData = [[NSMutableData alloc] init];
-    request = [[EWSHttpRequest alloc] init];
-    parser = [[EWSXmlParser alloc] init];
-    _itemContentModel = [[EWSItemContentModel alloc] init];
-    _contentString = [[NSMutableString alloc] init];
-}
-
--(void)getItemContentWithEWSUrl:(NSString *)url item:(EWSInboxListModel *)item finishBlock:(void (^)(EWSItemContentModel *itemContentInfo, NSError *error))getItemContentBlock{
-    _getItemContentBlock = getItemContentBlock;
+-(NSString*_Nonnull)requestXmlString{
     
     NSString *soapXmlString = [NSString stringWithFormat:@"<?xml version=\"1.0\" encoding=\"utf-8\"?>\n"
                                "<soap:Envelope\n"
@@ -70,38 +69,27 @@ typedef void (^GetItemContentBlock)(EWSItemContentModel *itemContentInfo, NSErro
                                "</ItemIds>\n"
                                "</GetItem>\n"
                                "</soap:Body>\n"
-                               "</soap:Envelope>\n",item.itemId,item.changeKey];
+                               "</soap:Envelope>\n",self.model.itemId,self.model.changeKey];
     
-    [request ewsHttpRequest:soapXmlString andUrl:url receiveResponse:^(NSURLResponse *response) {
-//        NSLog(@"response:%@",response);
-    } reveiveData:^(NSData *data) {
-        [eData appendData:data];
-    } finishLoading:^{
-//        NSLog(@"data:%@",[[NSString alloc] initWithData:eData encoding:NSUTF8StringEncoding]);
-//        NSLog(@"----itemContent--finish-------");
-        [self requestFinishLoading];
-    } error:^(NSError *error) {
-        _error = error;
-    }];
+    return soapXmlString;
 }
 
--(void)requestFinishLoading{
-    NSString* newStr = [[NSString alloc] initWithData:eData encoding:NSUTF8StringEncoding];
-
-    [parser parserWithData:eData didStartDocument:^{
+-(void)pareseDataToModel:(NSData* _Nonnull)xmlData resultBlock:(void(^_Nullable)(id _Nullable result))resutBlock{
+    self.resultBlock = resutBlock;
+    
+    [_parser parserWithData:xmlData didStartDocument:^{
         
     } didStartElementBlock:^(NSString *elementName, NSString *namespaceURI, NSString *qName, NSDictionary *attributeDict) {
-        currentElement = elementName;
+        _currentElement = elementName;
         [self itemContentDidStartElement:elementName namespaceURI:namespaceURI qualifiedName:qName attributes:attributeDict];
     } foundCharacters:^(NSString *string) {
         [self itemContentFoundCharacters:string];
     } didEndElementBlock:^(NSString *elementName, NSString *namespaceURI, NSString *qName) {
-        currentElement = nil;
+        _currentElement = nil;
     } didEndDocument:^{
         [self itemContentDidEndDocument];
     }];
 }
-
 
 -(void)itemContentDidStartElement:(NSString *)elementName namespaceURI:(nullable NSString *)namespaceURI qualifiedName:(nullable NSString *)qName attributes:(NSDictionary<NSString *, NSString *> *)attributeDict{
     
@@ -134,22 +122,22 @@ typedef void (^GetItemContentBlock)(EWSItemContentModel *itemContentInfo, NSErro
 
 -(void)itemContentFoundCharacters:(NSString *)string{
     
-    if ([currentElement isEqualToString:@"t:Subject"]) {
+    if ([_currentElement isEqualToString:@"t:Subject"]) {
         [_itemSubject appendString:string];
     }
-    else if ([currentElement isEqualToString:@"t:Body"]){
+    else if ([_currentElement isEqualToString:@"t:Body"]){
         [_contentString appendString:string];
     }
-    else if ([currentElement isEqualToString:@"t:Size"]) {
+    else if ([_currentElement isEqualToString:@"t:Size"]) {
         _itemContentModel.size = string;
     }
-    else if ([currentElement isEqualToString:@"t:DateTimeSent"]) {
+    else if ([_currentElement isEqualToString:@"t:DateTimeSent"]) {
         _itemContentModel.dateTimeSentStr = string;
     }
-    else if ([currentElement isEqualToString:@"t:DateTimeCreated"]) {
+    else if ([_currentElement isEqualToString:@"t:DateTimeCreated"]) {
         _itemContentModel.dateTimeCreatedStr = string;
     }
-    else if ([currentElement isEqualToString:@"t:HasAttachments"]) {
+    else if ([_currentElement isEqualToString:@"t:HasAttachments"]) {
         if ([string isEqualToString:@"true"]) {
             _itemContentModel.hasAttachments = YES;
         }
@@ -157,7 +145,7 @@ typedef void (^GetItemContentBlock)(EWSItemContentModel *itemContentInfo, NSErro
             _itemContentModel.hasAttachments = NO;
         }
     }
-    else if ([currentElement isEqualToString:@"t:Name"]) {
+    else if ([_currentElement isEqualToString:@"t:Name"]) {
         if (_mailAccountModel) {
             _mailAccountModel.name = string;
         }
@@ -169,10 +157,10 @@ typedef void (^GetItemContentBlock)(EWSItemContentModel *itemContentInfo, NSErro
             }
         }
     }
-    else if ([currentElement isEqualToString:@"t:EmailAddress"]) {
+    else if ([_currentElement isEqualToString:@"t:EmailAddress"]) {
         _mailAccountModel.emailAddress = string;
     }
-    else if ([currentElement isEqualToString:@"t:RoutingType"]) {
+    else if ([_currentElement isEqualToString:@"t:RoutingType"]) {
         _mailAccountModel.routingType = string;
         if (_itemContentModel.fromList) {
             [_itemContentModel.fromList addObject:_mailAccountModel];
@@ -184,7 +172,7 @@ typedef void (^GetItemContentBlock)(EWSItemContentModel *itemContentInfo, NSErro
             [_itemContentModel.toRecipientsList addObject:_mailAccountModel];
         }
     }
-    else if ([currentElement isEqualToString:@"t:IsReadReceiptRequested"]) {
+    else if ([_currentElement isEqualToString:@"t:IsReadReceiptRequested"]) {
         if ([string isEqualToString:@"true"]) {
             _itemContentModel.isReadReceiptRequested = YES;
         }
@@ -192,7 +180,7 @@ typedef void (^GetItemContentBlock)(EWSItemContentModel *itemContentInfo, NSErro
             _itemContentModel.isReadReceiptRequested = NO;
         }
     }
-    else if ([currentElement isEqualToString:@"t:IsDeliveryReceiptRequested"]) {
+    else if ([_currentElement isEqualToString:@"t:IsDeliveryReceiptRequested"]) {
         if ([string isEqualToString:@"true"]) {
             _itemContentModel.isDeliveryReceiptRequested = YES;
         }
@@ -200,7 +188,7 @@ typedef void (^GetItemContentBlock)(EWSItemContentModel *itemContentInfo, NSErro
             _itemContentModel.isDeliveryReceiptRequested = NO;
         }
     }
-    else if ([currentElement isEqualToString:@"t:IsRead"]){
+    else if ([_currentElement isEqualToString:@"t:IsRead"]){
         if ([string isEqualToString:@"true"]) {
             _itemContentModel.isRead = YES;
         }
@@ -208,10 +196,10 @@ typedef void (^GetItemContentBlock)(EWSItemContentModel *itemContentInfo, NSErro
             _itemContentModel.isRead = NO;
         }
     }
-    else if ([currentElement isEqualToString:@"t:ContentType"]){
+    else if ([_currentElement isEqualToString:@"t:ContentType"]){
         _mailAttachmentModel.contentType = string;
     }
-    else if ([currentElement isEqualToString:@"t:ContentId"]) {
+    else if ([_currentElement isEqualToString:@"t:ContentId"]) {
         _mailAttachmentModel.contentId = string;
     }
 }
@@ -222,12 +210,9 @@ typedef void (^GetItemContentBlock)(EWSItemContentModel *itemContentInfo, NSErro
     _contentString = nil;
     _itemSubject = nil;
     
-    if (_getItemContentBlock) {
-        _getItemContentBlock(_itemContentModel, _error);
+    if (self.resultBlock) {
+        self.resultBlock(_itemContentModel);
     }
-    request = nil;
-    parser = nil;
-    eData = nil;
 }
 
 @end
