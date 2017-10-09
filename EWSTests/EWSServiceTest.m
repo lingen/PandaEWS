@@ -28,7 +28,7 @@
 -(void)testQueryEwsUrlByAutoDiscovery{
     __block BOOL done = NO;
 
-    EWSEmailBoxModel* emailModel = [[EWSEmailBoxModel alloc] initWith:@"zhangsan@rainy.com.cn" andPassword:@"foreverht123ABC"];
+    EWSEmailBoxModel* emailModel = [[EWSEmailBoxModel alloc] initWith:@"test1@coderzoo.com" andPassword:@"foreverht123ABC"];
     
     [EWSService sharedInstance].ewsEmailBoxModel = emailModel;
     
@@ -47,8 +47,8 @@
     __block BOOL done = NO;
 
     
-    EWSEmailBoxModel* emailModel = [[EWSEmailBoxModel alloc] initWith:@"zhangsan@rainy.com.cn" andPassword:@"foreverht123ABC"];
-    emailModel.ewsUrl = @"https://win-1p4clebkmf9.rainy.com.cn/EWS/Exchange.asmx";
+    EWSEmailBoxModel* emailModel = [[EWSEmailBoxModel alloc] initWith:@"test2@coderzoo.com" andPassword:@"foreverht123ABC"];
+    emailModel.ewsUrl = @"https://win-lefu2bnesrq.coderzoo.com/EWS/Exchange.asmx";
     
     [EWSService sharedInstance].ewsEmailBoxModel = emailModel;
 
@@ -64,8 +64,8 @@
 -(void)testFetchItemContent{
     __block BOOL done = NO;
     
-    EWSEmailBoxModel* emailModel = [[EWSEmailBoxModel alloc] initWith:@"zhangsan@rainy.com.cn" andPassword:@"foreverht123ABC"];
-    emailModel.ewsUrl = @"https://win-1p4clebkmf9.rainy.com.cn/EWS/Exchange.asmx";
+    EWSEmailBoxModel* emailModel = [[EWSEmailBoxModel alloc] initWith:@"test2@coderzoo.com" andPassword:@"foreverht123ABC"];
+    emailModel.ewsUrl = @"https://win-lefu2bnesrq.coderzoo.com/EWS/Exchange.asmx";
     
     [EWSService sharedInstance].ewsEmailBoxModel = emailModel;
     
